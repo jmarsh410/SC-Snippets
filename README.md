@@ -10,14 +10,16 @@ Current options:
 1. Modal that houses video
 2. Modal that houses an image gallery
 
+---
+
 ## Title
 
 Description
 
-### Steps
+#### Steps
 
 1. step 1
 2. step 2
 
-### Troubleshooting
+#### Troubleshooting
 
