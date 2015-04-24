@@ -12,12 +12,12 @@ Current options:
 
 ## Title
 
-	Description
+Description
 
-	### Steps
-	
-	1. step 1
-	2. step 2
+### Steps
 
-	### Troubleshooting
+1. step 1
+2. step 2
+
+### Troubleshooting
 
