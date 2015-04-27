@@ -1,0 +1,67 @@
+/***********
+ITEM FILTER - list of filter links
+***********/
+.item-filter {
+  text-align: center; }
+  .item-filter li {
+    display: inline-block;
+    font-family: "Salsa", Helvetica, sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 0 2%;
+    color: #efe9db;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+    font-size: 32px; }
+    @media only screen and (max-width: 767px) {
+      .item-filter li {
+        display: block;
+        font-size: 28px; } }
+    .item-filter li:hover, .item-filter li.active {
+      color: #ffa320; }
+
+/***********
+FULL WIDTH IMAGE GALLERY WITH CUSTOM CAPTION OVERLAYS
+***********/
+/* switch out .blockWrap class with correct one */
+/* image gallery container */
+.blockWrap_aba5e8c74bcf46bf9da8fda9e041921c {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* target blockContent and remove container styles */
+.fullBleed .noSecondaryContent .primaryAndSecondaryContent .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .blockContent {
+  min-width: 100%;
+  padding-left: 0;
+  padding-right: 0; }
+    .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem {
+    position: relative; }
+    /* custom caption hover effect */
+    .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem:hover .customCaption  {
+      opacity: 1;
+      padding-top: 40%; }
+    /* full width images*/
+    .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem img {
+      width: 100%; }
+      /* custom caption styles */
+    .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem .customCaption {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.55);
+      opacity: 0;
+      -webkit-transition: all .3s ease;
+              transition: all .3s ease; }
+      .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem .customCaption h2 {
+        font-size: 28px;
+        color: #efe9db;
+        line-height: 1em;
+        padding-bottom: 0; }
+      .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem .customCaption p {
+        color: #efe9db; }
+

@@ -28,6 +28,40 @@ The Modal takes a blockWrap and appends it to the body of the html document, the
 
 ---
 
+## Filtered Image Gallery
+
+An image gallery that allows user to filter which images they see based on a list of filter links.
+
+#### Steps
+
+1. Include css and js files in their respective places, replace example blockWrap classes with correct ones
+2. Within Spacecraft tool, find the correct page and create a custom html block and include the filter-links.html inside
+	<!-- change data-target to the block with the image gallery -->
+	<ul class="item-filter" data-target="block_f9716438a8374925a93a61200bd62a38">
+	    <li data-filter="Naan">Naan</li>
+	    <li data-filter="Pizza">Pizza</li>
+	    <li data-filter="Appetizers">Appetizers</li>
+	    <li data-filter="Dessert">Dessert</li>
+	    <li data-filter="Naan Crisp">Naan Crisp</li>
+	    <li data-filter="All">All</li>
+	</ul>
+3. Create an image gallery block, and include the images for the gallery.
+4. Add tags to your images that correspond to the "data-filter" attributes on the filter links, this is how the correct images will be displayed when one of the list items is clicked
+
+#### Troubleshooting
+
+- using an items list: this snippet could possibly be used on an items list as well as an image gallery. However, if the design uses a full-width layout, has the images touching, and needs smooth animated transitions, then it is better to just use an image gallery. The default packery settings on items lists are harder to work with than image galleries
+- the css included here creates a full width container with the images flush against each other, remove styles as necessary if this isn't desired for your layout
+- style the block as much as you can with the design tool before trying out more complicated solutions
+
+#### Live Examples
+
+1. http://loganandjohnson.com/projects
+2. http://tribezaguides.com/dining (with dropdown)
+3. http://stonefire.spacecrafted.com/recipes (will update once site is completely live)
+
+---
+
 ## Full Page Rotating Background Images
 
 Description
