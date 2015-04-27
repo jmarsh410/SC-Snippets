@@ -35,6 +35,129 @@ An image gallery that allows user to filter which images they see based on a lis
 #### Steps
 
 1. Include css and js files in their respective places, replace example blockWrap classes with correct ones
+```
+// --------------------------------------------
+// RECIPES FILTER
+// --------------------------------------------
+// ONLY WORKS ON IMAGE GALLERY
+// IMAGE GALLERY HAS DEFAULT PACKERY OPTIONS/SETTINGS THAT WORK BEST FOR THIS
+// packery is already loaded with plugins.js
+
+$('.block_f9716438a8374925a93a61200bd62a38').scCaptions(); // turns on captions, if needed
+
+$('.item-filter').each(function(index, elem) {
+  var $elem = $(elem),
+      targetClass = $elem.data('target'),
+      $target,
+      $container,
+      $items;
+  if (targetClass) {
+    $target = $('.' + targetClass);
+    if ($target.hasClass('galleryWrapper')) {
+      $container = $target;
+    } else {
+      $container = $target.find('.galleryWrapper');
+    }
+    $items = $container.find('.imgGridItem');
+  }
+  if ($items && $items.length) {
+    var $filters = $elem.find('li').on('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var $filter = $(this),
+          filter;
+      if (!$filter.hasClass('active')) {
+        $filters.removeClass('active');
+        $filter.addClass('active');
+      }
+      filter = $filter.data('filter');
+      if (filter) {
+        var $filtered = $items.map(function(index, elem) {          
+          var tags = $(elem).find('img').data('tags'); // array of tags on the image
+          //  tags array exists, --- -----------------------and specific tag is in the array
+          if (tags && typeof tags.indexOf === 'function' && tags.indexOf(filter) > -1) { 
+            return elem;
+          }
+        });
+        $items.hide(); // hide all items
+        $filtered.show(); // filtered is now a new array that contains all the images that passed the test, and we'd like to show
+      } else {
+        $items.show();
+      }
+      $container.data('packery').layout();
+    });
+  }
+});
+```
+```
+/***********
+ITEM FILTER - list of filter links
+***********/
+.item-filter {
+  text-align: center; }
+  .item-filter li {
+    display: inline-block;
+    font-family: "Salsa", Helvetica, sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 0 2%;
+    color: #efe9db;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+    font-size: 32px; }
+    @media only screen and (max-width: 767px) {
+      .item-filter li {
+        display: block;
+        font-size: 28px; } }
+    .item-filter li:hover, .item-filter li.active {
+      color: #ffa320; }
+
+/***********
+FULL WIDTH IMAGE GALLERY WITH CUSTOM CAPTION OVERLAYS
+***********/
+/* switch out .blockWrap class with correct one */
+/* image gallery container */
+.blockWrap_aba5e8c74bcf46bf9da8fda9e041921c {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* target blockContent and remove container styles */
+.fullBleed .noSecondaryContent .primaryAndSecondaryContent .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .blockContent {
+  min-width: 100%;
+  padding-left: 0;
+  padding-right: 0; }
+    .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem {
+    position: relative; }
+    /* custom caption hover effect */
+    .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem:hover .customCaption  {
+      opacity: 1;
+      padding-top: 40%; }
+    /* full width images*/
+    .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem img {
+      width: 100%; }
+      /* custom caption styles */
+    .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem .customCaption {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.55);
+      opacity: 0;
+      -webkit-transition: all .3s ease;
+              transition: all .3s ease; }
+      .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem .customCaption h2 {
+        font-size: 28px;
+        color: #efe9db;
+        line-height: 1em;
+        padding-bottom: 0; }
+      .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem .customCaption p {
+        color: #efe9db; }
+
+```
 2. Within Spacecraft tool, find the correct page and create a custom html block and include the filter-links.html inside
 ```
 	<!-- change data-target to the block with the image gallery -->
