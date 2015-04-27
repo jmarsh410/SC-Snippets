@@ -36,7 +36,7 @@ An image gallery that allows user to filter which images they see based on a lis
 
 1. Include css and js files in their respective places, replace example blockWrap classes with correct ones
 2. Within Spacecraft tool, find the correct page and create a custom html block and include the filter-links.html inside
-'''
+```
 	<!-- change data-target to the block with the image gallery -->
 	<ul class="item-filter" data-target="block_f9716438a8374925a93a61200bd62a38">
 	    <li data-filter="Naan">Naan</li>
@@ -46,7 +46,7 @@ An image gallery that allows user to filter which images they see based on a lis
 	    <li data-filter="Naan Crisp">Naan Crisp</li>
 	    <li data-filter="All">All</li>
 	</ul>
-'''
+```
 3. Create an image gallery block, and include the images for the gallery.
 4. Add tags to your images that correspond to the "data-filter" attributes on the filter links, this is how the correct images will be displayed when one of the list items is clicked
 
