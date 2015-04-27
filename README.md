@@ -1,6 +1,8 @@
 # SC-Snippets
 Collection of common/useful snippets for Spacecraft projects
 
+1. [filtered Image Gallery](#filtered)
+
 ## Modals
 
 The Modal takes a blockWrap and appends it to the body of the html document, then displays it when a specified item is clicked. Depending on the task, the modals may have to work differently. 
@@ -28,14 +30,14 @@ The Modal takes a blockWrap and appends it to the body of the html document, the
 
 ---
 
-## Filtered Image Gallery
+## Filtered Image Gallery<a name="filtered"></a>
 
 An image gallery that allows user to filter which images they see based on a list of filter links.
 
 #### Steps
 
 1. Include css and js files in their respective places, replace example blockWrap classes with correct ones
-```
+```javascript
 // --------------------------------------------
 // RECIPES FILTER
 // --------------------------------------------
@@ -89,7 +91,7 @@ $('.item-filter').each(function(index, elem) {
   }
 });
 ```
-```
+```css
 /***********
 ITEM FILTER - list of filter links
 ***********/
