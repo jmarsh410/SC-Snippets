@@ -1,11 +1,12 @@
 # SC-Snippets
 Collection of common/useful snippets for Spacecraft projects
 
-1. [filtered Image Gallery](#filtered)
+1. [Modals](#modals)
+2. [Filtered Image Gallery](#filtered)
 
-## Modals
+## Modals<a name="modals"></a>
 
-The Modal takes a blockWrap and appends it to the body of the html document, then displays it when a specified item is clicked. Depending on the task, the modals may have to work differently. 
+The Modal takes an existing blockWrap, hides it, and appends it to the body of the html document, then displays it when a specified item is clicked. Depending on the task, the modals work slightly differently (ie. the image gallery modal is not immediately hidden). 
 
 ### Current methods:
 
@@ -37,141 +38,7 @@ An image gallery that allows user to filter which images they see based on a lis
 #### Steps
 
 1. Include css and js files in their respective places, replace example blockWrap classes with correct ones
-```javascript
-// --------------------------------------------
-// RECIPES FILTER
-// --------------------------------------------
-// ONLY WORKS ON IMAGE GALLERY
-// IMAGE GALLERY HAS DEFAULT PACKERY OPTIONS/SETTINGS THAT WORK BEST FOR THIS
-// packery is already loaded with plugins.js
-
-$('.block_f9716438a8374925a93a61200bd62a38').scCaptions(); // turns on captions, if needed
-
-$('.item-filter').each(function(index, elem) {
-  var $elem = $(elem),
-      targetClass = $elem.data('target'),
-      $target,
-      $container,
-      $items;
-  if (targetClass) {
-    $target = $('.' + targetClass);
-    if ($target.hasClass('galleryWrapper')) {
-      $container = $target;
-    } else {
-      $container = $target.find('.galleryWrapper');
-    }
-    $items = $container.find('.imgGridItem');
-  }
-  if ($items && $items.length) {
-    var $filters = $elem.find('li').on('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      var $filter = $(this),
-          filter;
-      if (!$filter.hasClass('active')) {
-        $filters.removeClass('active');
-        $filter.addClass('active');
-      }
-      filter = $filter.data('filter');
-      if (filter) {
-        var $filtered = $items.map(function(index, elem) {          
-          var tags = $(elem).find('img').data('tags'); // array of tags on the image
-          //  tags array exists, --- -----------------------and specific tag is in the array
-          if (tags && typeof tags.indexOf === 'function' && tags.indexOf(filter) > -1) { 
-            return elem;
-          }
-        });
-        $items.hide(); // hide all items
-        $filtered.show(); // filtered is now a new array that contains all the images that passed the test, and we'd like to show
-      } else {
-        $items.show();
-      }
-      $container.data('packery').layout();
-    });
-  }
-});
-```
-```css
-/***********
-ITEM FILTER - list of filter links
-***********/
-.item-filter {
-  text-align: center; }
-  .item-filter li {
-    display: inline-block;
-    font-family: "Salsa", Helvetica, sans-serif;
-    text-transform: uppercase;
-    color: #fff;
-    padding: 0 2%;
-    color: #efe9db;
-    cursor: pointer;
-    -webkit-transition: all .3s ease;
-            transition: all .3s ease;
-    font-size: 32px; }
-    @media only screen and (max-width: 767px) {
-      .item-filter li {
-        display: block;
-        font-size: 28px; } }
-    .item-filter li:hover, .item-filter li.active {
-      color: #ffa320; }
-
-/***********
-FULL WIDTH IMAGE GALLERY WITH CUSTOM CAPTION OVERLAYS
-***********/
-/* switch out .blockWrap class with correct one */
-/* image gallery container */
-.blockWrap_aba5e8c74bcf46bf9da8fda9e041921c {
-  padding-left: 0;
-  padding-right: 0;
-}
-/* target blockContent and remove container styles */
-.fullBleed .noSecondaryContent .primaryAndSecondaryContent .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .blockContent {
-  min-width: 100%;
-  padding-left: 0;
-  padding-right: 0; }
-    .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem {
-    position: relative; }
-    /* custom caption hover effect */
-    .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem:hover .customCaption  {
-      opacity: 1;
-      padding-top: 40%; }
-    /* full width images*/
-    .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem img {
-      width: 100%; }
-      /* custom caption styles */
-    .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem .customCaption {
-      position: absolute;
-      margin: auto;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.55);
-      opacity: 0;
-      -webkit-transition: all .3s ease;
-              transition: all .3s ease; }
-      .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem .customCaption h2 {
-        font-size: 28px;
-        color: #efe9db;
-        line-height: 1em;
-        padding-bottom: 0; }
-      .blockWrap_aba5e8c74bcf46bf9da8fda9e041921c .imgGridItem .customCaption p {
-        color: #efe9db; }
-
-```
 2. Within Spacecraft tool, find the correct page and create a custom html block and include the filter-links.html inside
-```
-	<!-- change data-target to the block with the image gallery -->
-	<ul class="item-filter" data-target="block_f9716438a8374925a93a61200bd62a38">
-	    <li data-filter="Naan">Naan</li>
-	    <li data-filter="Pizza">Pizza</li>
-	    <li data-filter="Appetizers">Appetizers</li>
-	    <li data-filter="Dessert">Dessert</li>
-	    <li data-filter="Naan Crisp">Naan Crisp</li>
-	    <li data-filter="All">All</li>
-	</ul>
-```
 3. Create an image gallery block, and include the images for the gallery.
 4. Add tags to your images that correspond to the "data-filter" attributes on the filter links, this is how the correct images will be displayed when one of the list items is clicked
 
@@ -191,38 +58,92 @@ FULL WIDTH IMAGE GALLERY WITH CUSTOM CAPTION OVERLAYS
 
 ## Full Page Rotating Background Images
 
-Description
+Changes the background image of a specified element periodically. Most often used for background images that take up an entire page.
 
-### Method 1 - Backstretch
-
-#### Steps
-
-1. step 1
-2. step 2
-
-### Method 2 - Backstretch
+### Backstretch Method
 
 #### Steps
 
-1. step 1
-2. step 2
+1. create an image gallery block on desired page and populate with images
+2. paste rotating-bg-images.js into js body
+3. change out the blockId and bodyBg with correct selectors
+4. script will take gallery images, use backstretch, and then remove the block from the html (this lets clients easily edit which images are used and not used)
+
+### Method 2 (used on Odd Duck)
+
+#### Steps
+
+1. paste script into js body
+2. change out the url's and bg image paths with correct paths
 
 #### Troubleshooting
 
+- this method was created for Odd Duck so they could have a specific image display depending on the page the user was on. because of that, each page needs have a background-image specified in the css, which should correspond to the one used in the bgImgs array within the js.
+
 #### Live Examples
+
+- barley swine (backstretch)
+- http://oddduckaustin.com/ (method 2)
 
 ---
 
-## Title
+## Backstretch
 
-Description
+Creates full-width background images. Useful for creating hero images and full-width backgrounds out of generated blocks. Allows users to easily change the images.
+
+info on the plugin can be found here: http://srobbin.com/jquery-plugins/backstretch/
 
 #### Steps
 
-1. step 1
-2. step 2
+1. include backstretch-example.js in the js body, it includes the plugin itself
+2. call the function on a blockWrap/block, then pass it an array of images you'd like to appear as background images in that blockWrap/block
+3. in the backstretch-example.js, there are 2 usages. one is basic, and the image paths are strictly defined. the second is more advanced and dynamically creates the array of images sources
 
-#### Troubleshooting
+<!-- #### Troubleshooting -->
+
+<!-- #### Live Examples -->
+
+---
+
+## Google Tracking Conversion
+
+a script to dynamically add the onclick attribute to text or image links
+
+information from google about it: https://support.google.com/adwords/answer/6095821
+
+#### Steps
+
+1. Create a custom html block and include the google-conversion.html inside
+2. to dynamically add the onclick attribut to a text/image, use the onClickGoogleConversion.js file. if you have access to the html itself, then simply include the attribute there.
 
 #### Live Examples
+
+- http://pilgrimagefestival.com/
+- http://nflp.com/
+
+---
+
+## Quick Append
+
+a script for easily moving DOM elements to other locations. allows you to specify one array with all the dom elements that will be appended in your project, instead of having them spread out all throughout the js file
+
+#### Steps
+
+1. 
+
+<!-- #### Live Examples -->
+
+---
+
+## ScCaptions
+
+Creates captions for an image based on its title and alt text. The title and alt text is specified in the spacecraft tool.
+
+#### Steps
+
+1. 
+
+<!-- #### Troubleshooting -->
+
+<!-- #### Live Examples -->
 

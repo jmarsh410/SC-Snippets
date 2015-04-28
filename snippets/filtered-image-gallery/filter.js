@@ -1,11 +1,11 @@
 // --------------------------------------------
 // RECIPES FILTER
 // --------------------------------------------
-// ONLY WORKS ON IMAGE GALLERY.
+// ONLY WORKS ON IMAGE GALLERY
 // IMAGE GALLERY HAS DEFAULT PACKERY OPTIONS/SETTINGS THAT WORK BEST FOR THIS
 // packery is already loaded with plugins.js
 
-$('.block_f9716438a8374925a93a61200bd62a38').scCaptions();
+$('.block_f9716438a8374925a93a61200bd62a38').scCaptions(); // turns on captions, if needed
 
 $('.item-filter').each(function(index, elem) {
   var $elem = $(elem),
