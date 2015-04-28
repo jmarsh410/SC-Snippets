@@ -141,7 +141,11 @@ Creates captions for an image based on its title and alt text. The title and alt
 
 #### Steps
 
-1. 
+1. the plugin is included in the plugins.js file on every website, so its as simple as calling the function. simply specify the block element containing your images, then call scCaptions() on it. a div called '.customCaptions' will be created with the images title and alt text inside.
+```javascript
+$('.block_c5ea5513101f4f25a48b69b7984988bd').scCaptions();
+
+```
 
 <!-- #### Troubleshooting -->
 
