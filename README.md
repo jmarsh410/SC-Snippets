@@ -4,6 +4,8 @@ Collection of common/useful snippets for Spacecraft projects
 1. [Modals](#modals)
 2. [Filtered Image Gallery](#filtered)
 
+---
+
 ## Modals<a name="modals"></a>
 
 The Modal takes an existing blockWrap, hides it, and appends it to the body of the html document, then displays it when a specified item is clicked. Depending on the task, the modals work slightly differently (ie. the image gallery modal is not immediately hidden). 
@@ -123,13 +125,16 @@ information from google about it: https://support.google.com/adwords/answer/6095
 
 ---
 
-## Quick Append
+## Append Helper
 
 a script for easily moving DOM elements to other locations. allows you to specify one array with all the dom elements that will be appended in your project, instead of having them spread out all throughout the js file
 
 #### Steps
 
-1. 
+1. include the js into the js-body.
+2. change the destination to the block you would like to append/prepend items to
+3. in the 'items' array, store the elements you will move into that destination
+4. change 'prepend' to true if you would like to prepend the given items. if so, you may want to rearrange the order in which the strings in the 'items' array are listed, as they will appear in the opposite order they are given.
 
 <!-- #### Live Examples -->
 
