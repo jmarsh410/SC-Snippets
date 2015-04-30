@@ -1,0 +1,1 @@
+$('.block_c5ea5513101f4f25a48b69b7984988bd').scCaptions();

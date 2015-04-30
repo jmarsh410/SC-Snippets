@@ -84,7 +84,7 @@ Changes the background image of a specified element periodically. Most often use
 
 #### Live Examples
 
-- barley swine (backstretch)
+- http://barleyswine.com/ (backstretch)
 - http://oddduckaustin.com/ (method 2)
 
 ---
@@ -155,4 +155,43 @@ $('.block_c5ea5513101f4f25a48b69b7984988bd').scCaptions();
 <!-- #### Troubleshooting -->
 
 <!-- #### Live Examples -->
+
+---
+
+## addClass Helper
+
+adds classes to specified blocks
+
+#### Steps
+
+1. include the correct js into js-body
+2. put in the correct info for the pageId, block, and classes properties
+
+---
+
+## Text Highlighter
+
+Allows you to wrap certain strings or Regular Expressions in html tags. Useful for styling block text that may not otherwise be stylable
+
+#### Steps
+
+1. replace needHighlighted with a regular expression or string that you'd like to highlight
+2. specify the block that contains the text
+3. specify what each match will be replaced with. the example wraps each match in <b> tags
+
+#### Live Examples
+
+- stonefire
+
+
+
+
+
+
+
+
+
+
+
+
 
