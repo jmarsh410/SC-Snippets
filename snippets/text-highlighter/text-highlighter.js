@@ -12,17 +12,25 @@ targetBlock.html(newString); // replace targetBlock's html with your new html
 // for multiple uses throughout site
 var replacers = [
   {
-    needHighlighted: /(artificial)/gi, // your regexp or string you want to replace
-    targetBlock: $('.blockWrap_Dvr72GNi9HqyETvb'), // block that contains string(s) you'd like replaced
+    hightlightPage: $('.page_ff30d7bfac494744bd1f93b5dd9fc17e_items'),
+    needHighlighted: 'No Artificial Preservatives or Artificial Flavors', // your regexp or string you want to replace
+    targets: $('.blockWrap_Dvr72GNi9HqyETvb'), // block that contains string(s) you'd like replaced
     replaceWith: '<b>$&</b>' // replace matched text with this text. this example wraps the whole match (signified by $&) in <b> tags
   },
   {
-    needHighlighted: 'Preservatives', // your regexp or string you want to replace
-    targetBlock: $('.blockWrap_Dvr72GNi9HqyETvb'), // block that contains string(s) you'd like replaced
-    replaceWith: '<i>$&</i>' // replace matched text with this text. this example wraps the whole match (signified by $&) in <i> tags
+    hightlightPage: $('.page_b40ba280ebf241008ad6dcf3a78ffece_items'),
+    needHighlighted: /^[\S]+\s/i, // your regexp or string you want to replace
+    targets: $('.blockWrap_9rzJa7hXsEUp0EYT .blockText > ul li'), // block that contains string(s) you'd like replaced
+    replaceWith: '<b>$&</b>' // replace matched text with this text. this example wraps the whole match (signified by $&) in <b> tags
   },
 ];
 $(replacers).each(function(i, el){
-  var newString = el.targetBlock.html().replace(el.needHighlighted, el.replaceWith);// take the block's html, replace the matches
-  el.targetBlock.html(newString); // replace the current html, with your new html with matches replaced
+  if (el.hightlightPage.length) {
+    el.targets.each(function(x, xel){
+      var $xel = $(xel); // make xel a jquery object
+      var newString = $xel.html().replace(el.needHighlighted, el.replaceWith); // take the block's html, replace the matches
+      $xel.html(newString); // replace the current html, with your new html with matches replaced
+    });
+  }
 });
+

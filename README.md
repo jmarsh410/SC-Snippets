@@ -165,7 +165,8 @@ adds classes to specified blocks
 #### Steps
 
 1. include the correct js into js-body
-2. put in the correct info for the pageId, block, and classes properties
+2. put in the correct info for the pageId, block, and classes properties. each block will be given their specified class. 
+3. write styles in the css for the given classes
 
 ---
 
@@ -182,6 +183,12 @@ Allows you to wrap certain strings or Regular Expressions in html tags. Useful f
 #### Live Examples
 
 - stonefire
+
+---
+
+## Faux Slideshow Effect
+
+This was originally created to emulate a slideshow on a blog post page. It hides all the blog posts on a page and shows more when the pagination buttons are clicked.
 
 
 
