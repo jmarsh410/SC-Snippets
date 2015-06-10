@@ -1,0 +1,22 @@
+/***********
+ITEM FILTER - list of filter links
+***********/
+.item-filter {
+  text-align: center; }
+  .item-filter li {
+    display: inline-block;
+    font-family: "Salsa", Helvetica, sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 0 2%;
+    color: #efe9db;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+    font-size: 32px; }
+    @media only screen and (max-width: 767px) {
+      .item-filter li {
+        display: block;
+        font-size: 28px; } }
+    .item-filter li:hover, .item-filter li.active {
+      color: #ffa320; }
