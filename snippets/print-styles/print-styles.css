@@ -1,0 +1,8 @@
+/* PRINT STYLES */
+@media print {
+    .headerContainer,
+    .navContainer,
+    .footerContainer {
+        display: none;
+    }
+}

@@ -1,0 +1,20 @@
+/* video element */
+/* the custom html block for the video */
+.blockWrap_b08329ff831c4a6dba446d4e3633c134 {
+  position: relative;
+}
+/* styles for either 1) text provided in the custom html block or 2) a blockWrap that has been appended to the video's custom html block */
+.videoText,
+.blockWrap_ae98517a362b401daa607c621bf5b112 {
+  position: absolute;
+  top: 50%;
+  -o-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 0 !important;
+  max-width: 100% !important;
+  text-align: center;
+}
